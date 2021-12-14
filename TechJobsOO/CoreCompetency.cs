@@ -8,6 +8,7 @@ namespace TechJobsOO
         private string value;
 
         // TODO: Change the fields to auto-implemented properties.
+       
 
         public CoreCompetency()
         {
@@ -22,6 +23,7 @@ namespace TechJobsOO
 
         public override bool Equals(object obj)
         {
+
             return obj is CoreCompetency competency &&
                    id == competency.id;
         }
@@ -33,8 +35,9 @@ namespace TechJobsOO
 
         public override string ToString()
         {
+            
             return value;
         }
     }
-    }
+    
 }
