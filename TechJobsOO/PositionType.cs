@@ -1,12 +1,11 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class PositionType
+    public class PositionType:JobField
     {
         public int Id { get; }
         private static int nextId = 1;
         public string Value { get; set; }
-
 
         public PositionType()
         {
@@ -36,8 +35,8 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            return Id.ToString();
-            //return Value;
+            
+            return Value;
         }
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
     }

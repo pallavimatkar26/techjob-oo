@@ -1,7 +1,7 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class Location
+    public class Location:JobField
     {
         public int Id { get; }
         private static int nextId = 1;
@@ -34,7 +34,7 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            return Id + ", " + Value;
+            return  Value;
             //return Value;
         }
     }

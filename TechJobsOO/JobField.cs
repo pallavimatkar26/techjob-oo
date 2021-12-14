@@ -23,6 +23,18 @@ namespace TechJobsOO
                 Value = value;
 
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is JobField field &&
+                   id == field.id &&
+                   Value == field.Value;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(id, Value);
+        }
     }
 
 }
