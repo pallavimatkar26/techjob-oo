@@ -21,11 +21,19 @@ namespace TechJobsOO
 
         public override bool Equals(object obj)
         {
-           
-                             
+            if (obj == null)
+            {
+                return true;
+            }
+            if (!(obj is PositionType))
+            {
+                return false;
+            }
+            else
+            {
                 return obj is PositionType positionType &&
-                       Id == positionType.Id;
-            
+                           Id == positionType.Id;
+            }
         }
         
         public override int GetHashCode()

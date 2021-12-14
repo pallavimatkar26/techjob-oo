@@ -5,7 +5,6 @@ namespace TechJobsOO
     {
         public int Id { get; }
         private static int nextId = 1;
-        private object id;
 
         public string Value { get; set; }
 
@@ -29,11 +28,20 @@ namespace TechJobsOO
 
         public override bool Equals(object obj)
         {
-
-
-            return obj is Employer employer &&
-                   id == employer.id;
-
+            if(obj == null)
+            {
+                return true;
+            }
+            if (!(obj is Employer))
+            {
+                return false;
+            }
+            //return Employer employer = (Employer)obj;
+            else
+            {
+                return obj is Employer employer &&
+                       Id == employer.Id;
+            }
 
         }
         public override int GetHashCode()

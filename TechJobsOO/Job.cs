@@ -2,26 +2,26 @@
 using System;
 namespace TechJobsOO
 {
-    public class Job :JobField
+    public class Job 
     {
-        public int idValue { get; }
+        public int Id { get; }
         private static int nextId = 1;
-        private object id;
+       
 
         public string Name { get; set; }
         public Employer EmployerName { get; set; }
         public Location EmployerLocation { get; set; }
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
-        public string nameValue { get; private set; }
+        //public string nameValue { get; private set; }
 
         // TODO: Add the two necessary constructors.
         public Job()
         {
-            id = nextId;
+            Id = nextId;
             nextId++;
         }
-        public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency)
+        public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency):this()
         {
 
             {
@@ -36,19 +36,27 @@ namespace TechJobsOO
         // TODO: Generate Equals() and GetHashCode() methods.
         public override bool Equals(object obj)
         {
-
-            return obj is Job job &&
-                   id == job.id;
+            if (obj == null)
+            {
+                return true;
+            }
+            if ((obj is Job) != (obj is Job))
+                return false;
+            else
+            {
+                return obj is Job job &&
+                       Id == job.Id;
+            }
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(id);
+            return HashCode.Combine(Id);
         }
         public override string ToString()
 
         {
-            if ((id == null)
+            if ((Id == null)
                    &&  (Name == null)
                     && (EmployerName == null)
                     && (EmployerLocation == null)
@@ -59,6 +67,7 @@ namespace TechJobsOO
            {
                return "OOPS! This job does not seem to exist.";
             }
+            
             String nameValue = Name;
             String employerValue = EmployerName.ToString();
             String locationValue = EmployerLocation.ToString(); ;
@@ -80,7 +89,7 @@ namespace TechJobsOO
             if(coreCompetencyValue==null)
                 coreCompetencyValue= "Data not available";
 
-            return "\nID: " + idValue + "\nName: " + nameValue + "\nEmployer: "
+            return "\nID: " + Id + "\nName: " + nameValue + "\nEmployer: "
                 + employerValue + "\nLocation: " + locationValue
                 + "\nPosition Type: " + positionTypeValue
                 + "\nCore Competency: " + coreCompetencyValue + "\n";

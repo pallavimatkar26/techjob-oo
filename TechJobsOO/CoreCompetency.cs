@@ -23,9 +23,19 @@ namespace TechJobsOO
 
         public override bool Equals(object obj)
         {
-
-            return obj is CoreCompetency competency &&
-                   id == competency.id;
+            if (obj == null)
+            {
+                return true;
+            }
+            if (!(obj is CoreCompetency))
+            {
+                return false;
+            }
+            else
+            {
+                return obj is CoreCompetency competency &&
+                       id == competency.id;
+            }
         }
 
         public override int GetHashCode()

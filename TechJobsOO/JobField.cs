@@ -6,13 +6,13 @@ namespace TechJobsOO
 {
     public abstract class JobField
     {
-        protected int id;
-        protected static int nextId = 1;
-        protected string Value { get; set; }
+        public int Id { get; }
+        private static int nextId = 1;
+        public string Value { get; set; }
 
         public JobField()
         {
-            id = nextId;
+            Id = nextId;
             nextId++;
         }
         public JobField(String value):this()
@@ -26,14 +26,15 @@ namespace TechJobsOO
 
         public override bool Equals(object obj)
         {
+            
             return obj is JobField field &&
-                   id == field.id &&
+                   Id == field.Id &&
                    Value == field.Value;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(id, Value);
+            return HashCode.Combine(Id, Value);
         }
     }
 

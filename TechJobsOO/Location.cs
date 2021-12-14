@@ -22,10 +22,19 @@ namespace TechJobsOO
 
         public override bool Equals(object obj)
         {
-           
-            return obj is Location location &&
-                   Id == location.Id;
-                 
+            if (obj == null)
+            {
+                return true;
+            }
+            if (!(obj is Location))
+            {
+                return false;
+            }
+            else
+            {
+                return obj is Location location &&
+                       Id == location.Id;
+            }     
         }
         public override int GetHashCode()
         {
