@@ -9,11 +9,12 @@ namespace TechJobsOO
        
 
         public string Name { get; set; }
-        public Employer EmployerName { get; set; }
-        public Location EmployerLocation { get; set; }
+        public Employer Employer { get; set; }
+        public Location Location { get; set; }
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
-        //public string nameValue { get; private set; }
+        public string employer { get; set; }
+
 
         // TODO: Add the two necessary constructors.
         public Job()
@@ -26,8 +27,8 @@ namespace TechJobsOO
 
             {
                 Name = name;
-                EmployerName = employer;
-                EmployerLocation = location;
+                Employer = employer;
+                Location = location;
                 JobType = positionType;
                 JobCoreCompetency = coreCompetency;
             }
@@ -58,8 +59,8 @@ namespace TechJobsOO
         {
             if ((Id == null)
                    &&  (Name == null)
-                    && (EmployerName == null)
-                    && (EmployerLocation == null)
+                    && (Employer == null)
+                    && (Location == null)
                     && (JobType == null)
                     && (JobCoreCompetency == null))
            
@@ -68,31 +69,36 @@ namespace TechJobsOO
                return "OOPS! This job does not seem to exist.";
             }
             
-            String nameValue = Name;
-            String employerValue = EmployerName.ToString();
-            String locationValue = EmployerLocation.ToString(); ;
-            String positionTypeValue = JobType.ToString();
-            String coreCompetencyValue = JobCoreCompetency.ToString();
-           
-            if(employerValue==null)
+            String name = Name;
+            String employer = Employer.ToString();
+            String location = Location.ToString(); ;
+            String positionType = JobType.ToString();
+            String coreCompetency = JobCoreCompetency.ToString();
+            if (name == null || name == "")
             {
-                employerValue = "Data not available";
+                name = "Data not available";
             }
-            if (locationValue == null)
+            if (employer==null || employer=="")
             {
-                locationValue= "Data not available";
+                employer = "Data not available";
             }
-            if(positionTypeValue==null)
+            if (location == null ||  location=="")
             {
-                positionTypeValue= "Data not available";
+                location= "Data not available";
             }
-            if(coreCompetencyValue==null)
-                coreCompetencyValue= "Data not available";
+            if(positionType==null || positionType=="")
+            {
+                positionType= "Data not available";
+            }
+            if(coreCompetency==null || coreCompetency =="")
+                coreCompetency= "Data not available";
 
-            return "\nID: " + Id + "\nName: " + nameValue + "\nEmployer: "
-                + employerValue + "\nLocation: " + locationValue
-                + "\nPosition Type: " + positionTypeValue
-                + "\nCore Competency: " + coreCompetencyValue + "\n";
+            return "\nID: " + Id +
+                "\nName: " + name +
+                "\nEmployer: " + employer + 
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency + "\n";
         }
        
 
